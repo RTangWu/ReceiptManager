@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceiptManager.MVVM.View.AllReceiptsView"
+             xmlns:converters="clr-namespace:ReceiptManager.Converters"
+             Title="Receipt Manager">
+
+    <ContentPage.Resources>
+        <converters:ColorConverters x:Key="ColorConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Button_Clicked" AutomationProperties.Name="Add New Receipt">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource Glyph="+" Size="35">
+                    <FontImageSource.Color>
+                        <AppThemeBinding Light="Black" Dark="White" />
+                    </FontImageSource.Color>
+                </FontImageSource>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+
+    <Grid Margin="1" RowDefinitions=" .1*,.7*,.3*">
+        <Label Text=" My Receipts" StyleClass="Header"/>
+        <Grid Grid.Row="1" RowDefinitions=".1*,.9*,.1*" >
+                <CollectionView  x:Name="ReceiptsCollectionView" Grid.Row="1" ItemsSource="{Binding Receipts} "
+                            ItemsUpdatingScrollMode="KeepLastItemInView">
+                <CollectionView.EmptyView>
+                    <Label Text="No receipts have been created" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+
+                                    <SwipeItem IconImageSource="delete.png" Text="Delete" BackgroundColor="Red" Clicked="DeleteButton_Clicked" AutomationProperties.Name="Delete receipt button" />
+                                    <SwipeItem IconImageSource="edit.png" Text="Edit" BackgroundColor="Blue" Clicked="EditButton_Clicked" AutomationProperties.Name="Edit receipt button"  />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                            <Frame StyleClass="Frame" BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ReceiptItemClicked" />
+                                </Frame.GestureRecognizers>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox x:Name="CheckBox" IsChecked="{Binding Pay}"
+                                              VerticalOptions="Center"
+                                              CheckedChanged="checkBox_CheckedChanged"
+                                              Color="{Binding ReceiptColor, Converter={StaticResource ColorConverter}}" AutomationProperties.Name="Check receipt Is done button" />
+
+                                    <Label Grid.Column="1" Text="{Binding StoreName}" VerticalOptions="Center" Padding="10" Margin="2" Grid.ColumnSpan="2">
+                                        <Label.Triggers>
+                                            <DataTrigger Binding="{Binding Source={x:Reference CheckBox},Path=IsChecked}" TargetType="Label" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+
+                                    <Label Grid.Column="1" Text="{Binding Amounts,StringFormat='£{0}'}" HorizontalOptions="End" Padding="10" Margin="2" >
+                                        <Label.Triggers>
+                                            <DataTrigger Binding="{Binding Source={x:Reference CheckBox},Path=IsChecked}" TargetType="Label" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Image Grid.Column="3"  Source="{Binding Image}" HeightRequest="50" WidthRequest="50" Margin="2" AutomationProperties.Name="Receipt"  />
+                                </Grid>
+
+
+
+
+                            </Frame>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        
+        <Grid Grid.Row="2" RowDefinitions=".2*, .9* ">
+            <Label StyleClass="LightGray, SubHeader" Text="GROUPS"/>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Groups}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <RoundRectangle/>
+                            <VerticalStackLayout Padding="15" Spacing="10">
+                                <Label StyleClass="LightGray" Text="{Binding PendingReceipts, StringFormat='{0} Receips'}"/>
+                                <Label StyleClass="DarkGray,CardTitle"
+                               Text="{Binding GroupName}"/>
+                                <ProgressBar Progress="{Binding Percentage}" ProgressColor="{Binding Color, Converter={StaticResource ColorConverter}}"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+
+    </Grid>
+</ContentPage>

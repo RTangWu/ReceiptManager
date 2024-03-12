@@ -1,0 +1,1 @@
+C:\Users\rtw45\Mobile app\ReceiptManager\ReceiptManager\ReceiptManager.csproj;x64

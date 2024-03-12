@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="DarkGray">#6E6E6E</Color>
+    <Color x:Key="LightGray">#ACACAC</Color>
+
+    <Style Class="DarkBlue" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DarkGray}"/>
+    </Style>
+
+    <Style Class="LightBlue" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightGray}"/>
+    </Style>
+
+    <Style Class="Header" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Title"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+    </Style>
+
+    <Style Class="SubHeader" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style Class="CardTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+    <Style x:Key="Receipt" TargetType="Entry">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+        <Setter Property="TextColor" Value="red"/>
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+
+    <Shadow x:Key="shadow"
+        Opacity="0.6"
+        Radius="15"
+        Offset="10,15"/>
+    
+    <Style TargetType="RoundRectangle">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Fill" Value="#82D9AD"/>
+        <Setter Property="WidthRequest" Value="200"/>
+        <Setter Property="Shadow" Value="{StaticResource shadow}"/>
+
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#285C42"></Setter>
+        
+    </Style>
+
+
+
+    <EllipseGeometry
+        x:Key="circle"
+        Center="50,50"
+        RadiusX="30"
+        RadiusY="30"/>
+
+    <Style x:Key="CircularButton" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HeightRequest" Value="100" />
+        <Setter Property="WidthRequest" Value="100" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Clip" Value="{StaticResource circle}"/>
+    </Style>
+    
+    <Style Class="Frame" TargetType="Frame">
+        <Setter Property="BorderColor" Value="#82D9AD" />
+    </Style>
+
+
+</ResourceDictionary>

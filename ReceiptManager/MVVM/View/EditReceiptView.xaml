@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ReceiptManager.MVVM.View.EditReceiptView"
+             Title="Edit Receipt">
+    <Grid RowDefinitions=" .9*,.6*,.1*">
+        <StackLayout Grid.Row="0" Margin="5">
+            <Label Text="Store Name:" Style="{StaticResource Receipt}" />
+            <Entry  Placeholder="Enter Store Name"
+       Text="{Binding StoreName}" Style="{StaticResource Receipt}"/>
+            <Label Text="Amounts(£):  " Style="{StaticResource Receipt}" />
+            <Entry  Keyboard="Numeric" Placeholder="Enter Amounts" 
+       Text="{Binding Amounts}" Style="{StaticResource Receipt}" >
+                <Entry.Behaviors>
+                    <toolkit:NumericValidationBehavior 
+                        x:Name="NumberValidation"
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource Receipt}"
+                        Flags="ValidateOnValueChanged"
+                        MinimumValue="0.01"
+                        MaximumDecimalPlaces="2" /> 
+                </Entry.Behaviors>
+            </Entry>
+
+
+            <Label Text="Address:" Style="{StaticResource Receipt}" />
+            <Entry x:Name="EntryAddress" Placeholder="Enter Address" 
+       Text="{Binding Address, Mode=TwoWay}" Style="{StaticResource Receipt}" />
+            <Button CornerRadius="15" Text="Find Location!" Clicked="FindAddressClicked" Margin="2.5" TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    AutomationProperties.Name="Add current address button" />
+            <Label Text="Receipt: " Style="{StaticResource Receipt}" />
+            <Image x:Name="Picture" Source="{Binding Image , Mode=TwoWay}" HeightRequest="80" WidthRequest="100" Margin="2" AutomationProperties.Name="Receipt" />
+            <Button CornerRadius="15" Text="Upload New Picture" Clicked="UploadImageClicked" Margin="2.5"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}" AutomationProperties.Name="Upload Image button"  />
+
+        </StackLayout>
+        <ActivityIndicator x:Name="activityIndicator" IsRunning="False" IsVisible="False" Color="{AppThemeBinding Light=Black, Dark=White}"  HeightRequest="50" WidthRequest="50" AutomationProperties.Name="Loading" />
+        
+        <CollectionView Grid.Row="1" Margin="5" ItemsSource="{Binding Groups}" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate >
+                <DataTemplate >
+                    <Frame BackgroundColor="#82D9AD" HeightRequest="60" >
+                        <RadioButton Content="{Binding GroupName}"
+                     GroupName="Group" 
+                     IsChecked="{Binding IsSelected}"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" CornerRadius="15" 
+                    Text="Save" Clicked="SaveButton_Clicked"  HeightRequest="42"  Margin="2.5" TextColor="{AppThemeBinding Light=Black, Dark=White}" AutomationProperties.Name="Update receipt button"/>
+            <Button Grid.Column="1" CornerRadius="15" 
+                    Text="Delete" Clicked="DeleteButton_Clicked" HeightRequest="42"  Margin="2.5" TextColor="{AppThemeBinding Light=Black, Dark=White}" AutomationProperties.Name="Delete receipt button" />
+            <Button Grid.Column="2" CornerRadius="15" 
+                    Text="Cancel" Clicked="Cancel_Clicked" HeightRequest="42"  Margin="2.5" TextColor="{AppThemeBinding Light=Black, Dark=White}" AutomationProperties.Name="Cancel update receipt button" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

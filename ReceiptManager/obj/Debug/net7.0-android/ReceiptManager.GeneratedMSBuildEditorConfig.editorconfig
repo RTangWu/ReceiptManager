@@ -1,0 +1,66 @@
+is_global = true
+build_property.PropertyChangedAnalyzerConfiguration = 
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net7.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ReceiptManager
+build_property.ProjectDir = C:\Users\rtw45\Mobile app\ReceiptManager\ReceiptManager\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/MVVM/View/AllReceiptsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.MVVM.View.AllReceiptsView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\AllReceiptsView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\AllReceiptsView.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/MVVM/View/EditReceiptView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.MVVM.View.EditReceiptView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\EditReceiptView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\EditReceiptView.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/MVVM/View/NewReceiptView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.MVVM.View.NewReceiptView.xaml
+build_metadata.AdditionalFiles.TargetPath = MVVM\View\NewReceiptView.xaml
+build_metadata.AdditionalFiles.RelativePath = MVVM\View\NewReceiptView.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/Resources/Styles/AppStyle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.Resources.Styles.AppStyle.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\AppStyle.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\AppStyle.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/rtw45/Mobile app/ReceiptManager/ReceiptManager/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ReceiptManager.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
